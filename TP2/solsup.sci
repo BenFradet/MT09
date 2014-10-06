@@ -3,7 +3,7 @@ function[x] = solsup(u, b)
 // computes the solution of ux = b where u is a upper triangular matrix
 [n m] = size(u);
 if n <> m
-    error('not a squared matrix');
+    error('not a square matrix');
 end
 
 [n2 un] = size(b);
@@ -25,7 +25,7 @@ for i = 1:n
     end
 end
 
-x = zeros(n, 1)
+x = zeros(n, 1);
 for i = n:-1:1
     x(i) = (b(i) - sum(u(i, i + 1:n) * x(i + 1:n))) / u(i,i);
 end
