@@ -13,15 +13,15 @@ end
 
 for i = 1:n
     for j = 1:i - 1
-        if u(i, j) <> 0
+        if abs(u(i, j)) > %eps
             error('not a upper triangular matrix');
         end
     end
 end
 
 for i = 1:n
-    if u(i, i) - floor(u(i, i)) <> 0
-        error('diagonal terms cant ben null');
+    if abs(u(i, i)) < %eps
+        error('diagonal terms cant be null');
     end
 end
 
