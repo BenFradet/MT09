@@ -12,8 +12,8 @@ if nMinusOne <> n - 1 | three <> 3
     error('cc not the right dims');
 end
 
-if N <= 0
-    error('N must be greather than 0');
+if N - floor(N) <> 0 | N <= 0
+    error('N has to be int > 0');
 end
 
 t = linspace(0, 4, N);
