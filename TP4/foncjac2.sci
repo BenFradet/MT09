@@ -1,4 +1,4 @@
-function[f, J] = foncjac2(x)
+function[f, J] = foncjac2(v)
     alpha = 5;
     beta = 5;
     n = length(x);
@@ -27,4 +27,3 @@ function[f, J] = foncjac2(x)
 
     J = diag(ldiag, -1) + diag(d), + diag(ldiag, 1);
 endfunction
-
