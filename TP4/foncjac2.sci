@@ -20,7 +20,7 @@ function[f, J] = foncjac2(x)
         v(3:n - 1) - h * h * b(x(2:n -2));
 
     ldiag = -ones(1:n-2)';
-    d= ones(1:n - 1);
+    d = ones(1:n - 1);
     d(1) = 2 + h * h * v(1) / (1 + v(1)) ^ 2;
     d(n - 1) = 2 + h * h * v(n - 1) / (1 + v(n - 1)) ^ 2;
     d(2:n - 2) = 2 * h * h * v(2:n - 2) / ((1 + v(2 : n - 2)) .^ 2);
