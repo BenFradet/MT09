@@ -1,6 +1,4 @@
-function[x, k] = newton(tol, Kmax, x0)
-    
-    exec('foncjac.sci', -1);
+function[x, k] = newton(foncjac, tol, Kmax, x0)
     
     if Kmax - floor(Kmax) ~= 0 | Kmax < 0
         error('Kmax must be an int');
