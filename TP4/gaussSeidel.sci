@@ -16,14 +16,17 @@ function[x, k] = gaussSeidel(A, b, tol, Kmax, x0)
 
     x = x0;
 
+    for i = 1:n
+        if abs(A(i, i)) < tol
+            error('cant divide by 0');
+        end
+    end
+
     for k = 1:Kmax
         for i = 1:n
-            if abs(A(i, i)) < tol
-                error('cant divide by 0');
-            end
             x(i) = (1 / A(i, i)) * (b(i) - ...
-                sum(A(i, 1:i - 1) * x(1:i - 1)) - ...
-                sum(A(i, i + 1:n) * x(i + 1:n)));
+                A(i, 1:i - 1) * x(1:i - 1) - ...
+                A(i, i + 1:n) * x(i + 1:n));
         end
 
         if (norm(x - x0) / norm(x)) < tol
