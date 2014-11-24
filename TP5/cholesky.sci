@@ -16,7 +16,7 @@ function[C] = cholesky(A)
         end
         for i = j + 1:n
             C(i, j) = 1 / C(j, j) * (A(i, j) - ...
-                sum(C(i, 1:j - 1) * C(j, 1:j - 1)));
+                sum(C(i, 1:j - 1) * C(j, 1:j - 1)'));
         end
     end
     srt = A(n, n) - sum(C(n, 1:n - 1) .^ 2);
