@@ -14,7 +14,7 @@ function[z] = rungeKutta4(a, t0, T, N, f)
 
     h = T / N;
     z = zeros(n, N);
-    tt = 0;
+    tt = t0;
     zz = a;
     for i = 1:N
         k1 = f(tt, zz);
