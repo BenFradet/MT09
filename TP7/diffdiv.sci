@@ -8,12 +8,12 @@ function [f] = diffdiv(y, t)
 
     f = zeros(m, n);
 
-    for k = 0:m
+    for k = 1:m
         f(k) = y(k);
     end
 
     for k = 1:m
-        for i = m:-1:k
+        for i = m:-1:k + 1
             if (t(i) - t(i - k)) == 0
                 error('dividing by 0');
             end
